@@ -4,7 +4,11 @@
 .breadcrumbs {
   display: inline-flex;
   align-items: center;
+  overflow-x: scroll;
   &Gt {
     padding: 0 1em;
+  }
+  li {
+    flex-shrink: 0;
   }
 }
