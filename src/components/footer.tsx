@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import dayjs from 'dayjs'
 import styles from '@/styles/scss/index.module.scss'
 import {Navgation, SNS} from '@/components/index'

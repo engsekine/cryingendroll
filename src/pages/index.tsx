@@ -1,5 +1,4 @@
 import Head from 'next/head'
-
 import Link from 'next/link'
 import {client} from '@/pages/api/client'
 import dayjs from 'dayjs'
