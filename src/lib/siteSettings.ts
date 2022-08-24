@@ -1,0 +1,9 @@
+export const BLOG_PER_PAGE = 10
+export const NEXT_PUBLIC_TITLE = '関根大地の快適'
+export const NEXT_PUBLIC_URL = 'https://eng-sekine.com/'
+export const NEXT_PUBLIC_TWITTER_SITE = '@sekine'
+export const NEXT_PUBLIC_TWITTER_DOMAIN = 'https://eng-sekine.com/'
+export const NEXT_PUBLIC_FACEBOOK_APPID = '000000000000000'
+export const NEXT_PUBLIC_IMAGE = '../favicon.ico'
+export const NEXT_PUBLIC_DESCRIPTION = 'NEXT_PUBLIC_DESCRIPTION'
+export const NEXT_PUBLIC_FAVICON = '../favicon.ico'

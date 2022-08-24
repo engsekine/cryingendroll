@@ -1,0 +1,109 @@
+@charset "utf-8";
+@use '../variables';
+
+#humburgerMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  .lines {
+    position: fixed;
+    z-index: 3;
+    top: 15px;
+    right: 4%;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    padding: 0;
+    background: none;
+    box-sizing: border-box;
+    span {
+      width: 100%;
+      height: 1px;
+      left: 0;
+      display: block;
+      background: variables.$font-second-color;
+      position: absolute;
+      transition: transform 0.6s ease-in-out, top 0.5s ease;
+      &:nth-of-type(1) {
+        top: 20%;
+      }
+      &:nth-of-type(2) {
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      &:nth-of-type(3) {
+        bottom: 20%;
+      }
+    }
+  }
+  .menu {
+    position: fixed;
+    right: 0;
+    box-sizing: border-box;
+    padding: 4%;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: variables.$bg-first-color;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    a {
+      font-size: 2.4rem;
+      padding: 0.5em 2em;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 2px;
+        background: variables.$font-first-color;
+        width: 100%;
+        height: 1px;
+        margin: auto;
+        transform-origin: left top;
+        transform: scale(0, 1);
+        transition: ease 0.4s;
+        box-sizing: border-box;
+      }
+      &:hover::before {
+        transform-origin: left top;
+        transform: scale(1, 1);
+      }
+    }
+  }
+  &[data-toggle='open'] {
+    span {
+      &:nth-of-type(1) {
+        top: 49%;
+        transform: rotate(45deg);
+      }
+      &:nth-of-type(2) {
+        display: none;
+      }
+      &:nth-of-type(3) {
+        bottom: 49%;
+        transform: rotate(-45deg);
+      }
+    }
+    .menu {
+      opacity: 1;
+      visibility: visible;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          padding-top: 4.3px;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}

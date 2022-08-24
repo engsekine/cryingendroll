@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+$header-height: 60px;
+
+$main-color: #fff;
+$sub-color: #a478c9;
+$accent-color: #d600cb;
+
+$bg-first-color: #fef;
+$bg-second-color: #483d8b;
+$bg-third-color: #a478c9;
+$bg-forth-color: #ddf;
+
+$font-first-color: #483d8b;
+$font-second-color: #fff;
+
+$lg: 1200;
+$md: 767;
+$sm: 480;
+
+$font-h1: 6rem;
+$font-h1-lg: 5rem;
+$font-h1-md: 4rem;
+$font-h1-sm: 2rem;
+
+$font-h2: 4rem;
+$font-h2-lg: 3.2rem;
+$font-h2-md: 2.6rem;
+$font-h2-sm: 2rem;
+
+$font-h3: 3rem;
+$font-h3-lg: 2.4rem;
+$font-h3-md: 2rem;
+$font-h3-sm: 1.6rem;
+
+$font-h4: 2rem;
+$font-h4-lg: 1.8rem;
+$font-h4-md: 1.6rem;
+$font-h4-sm: 1.6rem;
+
+$font-h5: 2rem;
+$font-h5-lg: 1.8rem;
+$font-h5-md: 1.6rem;
+$font-h5-sm: 1.6rem;
+
+$font-h6: 2rem;
+$font-h6-lg: 1.8rem;
+$font-h6-md: 1.6rem;
+$font-h6-sm: 1.6rem;
+
+$font-p: 2rem;
+$font-p-lg: 1.8rem;
+$font-p-md: 1.6rem;
+$font-p-sm: 1.6rem;
+
+$font-lg: 4rem;
+$font-lg-lg: 4rem;
+$font-lg-md: 3rem;
+$font-lg-sm: 2rem;
+
+$font-md: 2.6rem;
+$font-md-lg: 2.4rem;
+$font-md-md: 2.2rem;
+$font-md-sm: 1.8rem;
+
+$font-sm: 2rem;
+$font-sm-lg: 1.8rem;
+$font-sm-md: 1.6rem;
+$font-sm-sm: 1.4rem;
+
+$max-lg: unquote($lg + 'px');
+$max-md: unquote($md + 'px');
+$max-sm: unquote($sm + 'px');
+// breakpointの設定
+$mq-breakpoints: (
+  lg: $max-lg,
+  md: $max-md,
+  sm: $max-sm,
+) !default;
+
+// breakpoint
+@mixin mq($breakpoint: md, $rule: max, $subtraction: false) {
+  $breakpoint: map_get($mq-breakpoints, $breakpoint);
+
+  @if $rule==max and $subtraction {
+    $breakpoint: $breakpoint - 0.0625;
+  }
+
+  @media screen and (#{$rule}-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin responsive($propertyName, $defaultValue, $mediaQueries: ()) {
+  #{$propertyName}: #{$defaultValue};
+
+  @each $breakpoint, $value in $mediaQueries {
+    @media (max-width: #{$breakpoint}) {
+      #{$propertyName}: #{$value};
+    }
+  }
+}
+
+@mixin h1 {
+  @include responsive(
+    font-size,
+    $font-h1,
+    (
+      $max-lg: $font-h1-lg,
+      $max-md: $font-h1-md,
+      $max-sm: $font-h1-sm,
+    )
+  );
+}
+
+@mixin h2 {
+  @include responsive(
+    font-size,
+    $font-h2,
+    (
+      $max-lg: $font-h2-lg,
+      $max-md: $font-h2-md,
+      $max-sm: $font-h2-sm,
+    )
+  );
+}
+
+@mixin h3 {
+  @include responsive(
+    font-size,
+    $font-h3,
+    (
+      $max-lg: $font-h3-lg,
+      $max-md: $font-h3-md,
+      $max-sm: $font-h3-sm,
+    )
+  );
+}
+
+@mixin h4 {
+  @include responsive(
+    font-size,
+    $font-h4,
+    (
+      $max-lg: $font-h4-lg,
+      $max-md: $font-h4-md,
+      $max-sm: $font-h4-sm,
+    )
+  );
+}
+
+@mixin h5 {
+  @include responsive(
+    font-size,
+    $font-h5,
+    (
+      $max-lg: $font-h5-lg,
+      $max-md: $font-h5-md,
+      $max-sm: $font-h5-sm,
+    )
+  );
+}
+
+@mixin h6 {
+  @include responsive(
+    font-size,
+    $font-h6,
+    (
+      $max-lg: $font-h6-lg,
+      $max-md: $font-h6-md,
+      $max-sm: $font-h6-sm,
+    )
+  );
+}
+
+@mixin p {
+  @include responsive(
+    font-size,
+    $font-p,
+    (
+      $max-lg: $font-p-lg,
+      $max-md: $font-p-md,
+      $max-sm: $font-p-sm,
+    )
+  );
+}

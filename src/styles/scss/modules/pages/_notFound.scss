@@ -1,0 +1,8 @@
+@charset "utf-8";
+@use '../variables';
+.NotFound {
+  padding: 30vh 0;
+  &H1 {
+    text-align: center;
+  }
+}

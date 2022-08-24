@@ -1,0 +1,18 @@
+@charset "utf-8";
+@use '../variables';
+.Thanks {
+  padding: 30vh 0;
+  @include variables.mq(md) {
+    padding: 20vh 0;
+  }
+  &H1 {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  p {
+    text-align: center;
+    @include variables.mq(sm) {
+      text-align: left;
+    }
+  }
+}

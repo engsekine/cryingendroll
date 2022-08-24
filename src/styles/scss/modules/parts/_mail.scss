@@ -1,0 +1,55 @@
+@charset "utf-8";
+@use '../variables';
+
+.form {
+  margin: 50px auto;
+  max-width: 800px;
+  @include variables.mq(lg) {
+    margin: 5% auto;
+  }
+  @include variables.mq(sm) {
+    margin: 8% auto;
+  }
+  .feedbackInput {
+    display: block;
+    background-color: #fff;
+    color: variables.$font-first-color;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    border: 2px solid variables.$font-first-color;
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: 0;
+    @include variables.mq(lg) {
+      margin-bottom: 4%;
+    }
+    @include variables.mq(sm) {
+      margin-bottom: 8%;
+    }
+    &:focus {
+      border: 2px solid #cc4949;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+  textarea {
+    max-width: 100%;
+    min-width: 100%;
+    height: 300px;
+    @include variables.mq(sm) {
+      height: 200px;
+    }
+  }
+  .button01 {
+    color: variables.$font-second-color;
+    &:hover {
+      color: variables.$font-first-color;
+    }
+  }
+}

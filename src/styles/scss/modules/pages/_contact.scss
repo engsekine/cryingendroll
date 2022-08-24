@@ -1,0 +1,8 @@
+@charset "utf-8";
+@use '../variables';
+.contact {
+  padding: 60px 0;
+  &H1 {
+    text-align: center;
+  }
+}

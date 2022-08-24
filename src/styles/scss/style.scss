@@ -1,0 +1,104 @@
+@charset "utf-8";
+@use '../scss/modules/variables';
+@use '../scss/modules/default';
+
+body {
+  background: variables.$bg-first-color;
+  position: relative;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  @include variables.h1;
+  color: variables.$font-first-color;
+  font-weight: bold;
+  font-family: 'DotGothic16', sans-serif;
+}
+
+h2 {
+  @include variables.h2;
+  color: variables.$font-first-color;
+  font-weight: bold;
+  font-family: 'DotGothic16', sans-serif;
+}
+
+h3 {
+  @include variables.h3;
+  color: variables.$font-first-color;
+  font-weight: bold;
+}
+
+h4 {
+  @include variables.h4;
+  color: variables.$font-first-color;
+  font-weight: bold;
+}
+
+h5 {
+  @include variables.h5;
+  color: variables.$font-first-color;
+  font-weight: bold;
+}
+
+h6 {
+  @include variables.h6;
+  color: variables.$font-first-color;
+  font-weight: bold;
+}
+
+a,
+input {
+  @include variables.p;
+  color: variables.$font-first-color;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'DotGothic16', sans-serif;
+  letter-spacing: 0.1em;
+}
+
+p,
+span,
+li,
+strong {
+  @include variables.p;
+  color: variables.$font-first-color;
+  font-weight: bold;
+}
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+strong {
+  background: linear-gradient(transparent 60%, #ffff00 60%);
+}
+
+.test {
+  display: block;
+  @include variables.mq(lg) {
+  }
+  @include variables.mq(md) {
+  }
+  @include variables.mq(sm) {
+  }
+}
+
+.lg {
+  display: none;
+  @include variables.mq(lg) {
+    display: block;
+  }
+}
+.md {
+  display: none;
+  @include variables.mq(md) {
+    display: block;
+  }
+}
+.sm {
+  display: none;
+  @include variables.mq(sm) {
+    display: block;
+  }
+}

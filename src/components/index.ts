@@ -1,0 +1,7 @@
+export {Loading} from './loading'
+export {SNS} from './sns'
+export {Header} from './header'
+export {Footer} from './footer'
+export {PrevNext} from './prevNext'
+export {Navgation} from './navgation'
+export {Mail} from './mail'

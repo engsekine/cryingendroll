@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+/*pages*/
+@use '../scss/modules/pages/frontPage';
+@use '../scss/modules/pages/author';
+@use '../scss/modules/pages/archive';
+@use '../scss/modules/pages/contact';
+@use '../scss/modules/pages/blog';
+@use '../scss/modules/pages/notFound';
+@use '../scss/modules/pages/serverError';
+@use '../scss/modules/pages/thanks';
+/*components*/
+@use '../scss/modules/components/loading';
+@use '../scss/modules/components/layout';
+@use '../scss/modules/components/header';
+@use '../scss/modules/components/footer';
+/*parts*/
+@use '../scss/modules/parts/microcmsRichEditor';
+@use '../scss/modules/parts/parts';
+@use '../scss/modules/parts/blogArchive';
+@use '../scss/modules/parts/humburgerMenu';
+@use '../scss/modules/parts/button';
+@use '../scss/modules/parts/sns';
+@use '../scss/modules/parts/scrollText';
+@use '../scss/modules/parts/breadcrumbs';
+@use '../scss/modules/parts/prevNext';
+@use '../scss/modules/parts/mail';

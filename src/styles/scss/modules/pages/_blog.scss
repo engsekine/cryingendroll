@@ -1,0 +1,73 @@
+@charset "utf-8";
+@use '../variables';
+.blog {
+  padding: 20px 0;
+  .inner {
+    max-width: 840px;
+    .breadcrumbs {
+      margin-bottom: 60px;
+    }
+    .blogDate {
+      text-align: center;
+    }
+    .blogCategory {
+      color: variables.$font-first-color;
+      font-size: 1.6rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto 0;
+      @include variables.mq(lg) {
+        margin-top: 2%;
+      }
+      @include variables.mq(sm) {
+        font-size: 1.4rem;
+      }
+      svg {
+        @include variables.mq(sm) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    .blogH1 {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    .blogEyeCatch {
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+    .microCMSRichEditor {
+      margin-bottom: 40px;
+    }
+    .blogName {
+      margin-bottom: 60px;
+    }
+    .blogYoutube {
+      max-width: 500px;
+      margin-bottom: 60px;
+    }
+    .nextPrev {
+      display: flex;
+      justify-content: space-between;
+      div {
+        a {
+          color: variables.$font-first-color;
+          > span {
+            display: block;
+          }
+        }
+      }
+      .prev {
+        margin-right: auto;
+        margin-left: 0;
+      }
+      .next {
+        margin-right: 0;
+        margin-left: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "yakou",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:next": "next dev -p 3000"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "@types/nodemailer": "^6.4.5",
+    "dayjs": "^1.11.5",
+    "microcms-js-sdk": "^2.0.0",
+    "next": "12.1.6",
+    "nodemailer": "^6.7.8",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "18.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.53.0",
+    "typescript": "^4.7.4"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/engsekine/yakou.git",
+  "author": "engsekine <engsekine@gmail.com>",
+  "license": "MIT"
+}

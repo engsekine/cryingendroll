@@ -1,0 +1,319 @@
+@charset "utf-8";
+@use '../variables';
+
+.frontFv {
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  background-image: url(../../../../../public/cloud.webp);
+  background-color: #aaf;
+  animation: cloudmove 20s linear infinite;
+  -webkit-animation: cloudmove 20s linear infinite;
+  -moz-animation: cloudmove 20s linear infinite;
+  @include variables.mq(lg) {
+    padding: 0 2%;
+  }
+
+  @include variables.mq(md) {
+    padding: 0 4%;
+    height: 70vh;
+    background-image: url(../../../../../public/cloud2.webp);
+  }
+  @include variables.mq(sm) {
+    padding: 0 4%;
+  }
+  &Inner {
+    display: block;
+    margin: 0 auto;
+  }
+  &H1 {
+    text-align: center;
+    text-shadow: 0 0 3px #ff0;
+    span {
+      font-size: 6rem;
+      color: #483d8b;
+      font-family: 'DotGothic16', sans-serif;
+      letter-spacing: 0.2em;
+      line-height: 2em;
+      @include variables.mq(lg) {
+        font-size: 6vw;
+      }
+      @include variables.mq(sm) {
+        font-size: 7vw;
+      }
+    }
+  }
+}
+#frontFv[data-is-show='true'] {
+  .frontFvH1 {
+    animation-name: animation-fv;
+    animation-duration: 0.5s;
+    position: relative;
+    animation-delay: 3s;
+    span {
+      animation-name: animation-fv;
+      animation-duration: 0.5s;
+      position: relative;
+      &:nth-of-type(1) {
+        animation-delay: 0s;
+      }
+      &:nth-of-type(2) {
+        animation-delay: 0.1s;
+      }
+      &:nth-of-type(3) {
+        animation-delay: 0.2s;
+      }
+      &:nth-of-type(4) {
+        animation-delay: 0.3s;
+      }
+      &:nth-of-type(5) {
+        animation-delay: 0.4s;
+      }
+      &:nth-of-type(6) {
+        animation-delay: 0.5s;
+      }
+      &:nth-of-type(7) {
+        animation-delay: 0.6s;
+      }
+      &:nth-of-type(8) {
+        animation-delay: 0.7s;
+      }
+      &:nth-of-type(9) {
+        animation-delay: 0.8s;
+      }
+      &:nth-of-type(10) {
+        animation-delay: 0.9s;
+      }
+      &:nth-of-type(11) {
+        animation-delay: 1s;
+      }
+      &:nth-of-type(12) {
+        animation-delay: 1.1s;
+      }
+      &:nth-of-type(13) {
+        animation-delay: 1.2s;
+      }
+      &:nth-of-type(14) {
+        animation-delay: 1.3s;
+      }
+      &:nth-of-type(15) {
+        animation-delay: 1.4s;
+      }
+      &:nth-of-type(16) {
+        animation-delay: 1.5s;
+      }
+      &:nth-of-type(17) {
+        animation-delay: 1.6s;
+      }
+      &:nth-of-type(18) {
+        animation-delay: 1.7s;
+      }
+      &:nth-of-type(19) {
+        animation-delay: 1.8s;
+      }
+      &:nth-of-type(20) {
+        animation-delay: 1.9s;
+      }
+      &:nth-of-type(21) {
+        animation-delay: 2s;
+      }
+      &:nth-of-type(22) {
+        animation-delay: 2.1s;
+      }
+      &:nth-of-type(23) {
+        animation-delay: 2.2s;
+      }
+      &:nth-of-type(24) {
+        animation-delay: 2.3s;
+      }
+      &:nth-of-type(25) {
+        animation-delay: 2.4s;
+      }
+      &:nth-of-type(26) {
+        animation-delay: 2.5s;
+      }
+    }
+  }
+}
+@keyframes animation-fv {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: -15px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+@-webkit-keyframes animation-fv {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: -15px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+@keyframes cloudmove {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 200px 5px;
+  }
+  50% {
+    background-position: 400px 0;
+  }
+  75% {
+    background-position: 600px 5px;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}
+@-webkit-keyframes cloudmove {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 200px 5px;
+  }
+  50% {
+    background-position: 400px 0;
+  }
+  75% {
+    background-position: 600px 5px;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}
+@-moz-keyframes cloudmove {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 200px 5px;
+  }
+  50% {
+    background-position: 400px 0;
+  }
+  75% {
+    background-position: 600px 5px;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}
+
+.frontBlog {
+  background-color: variables.$bg-first-color;
+  padding: 100px 0;
+  @include variables.mq(lg) {
+    padding: 10% 0;
+  }
+
+  &H2 {
+    display: block;
+    color: variables.$font-first-color;
+    font-size: 5rem;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background: #ddf;
+    border: 4px solid variables.$font-first-color;
+    margin-bottom: 20px;
+    @include variables.mq(lg) {
+      font-size: 5vw;
+      margin-bottom: 2%;
+    }
+    @include variables.mq(sm) {
+      font-size: 3rem;
+      width: 200px;
+      margin-bottom: 2%;
+      border: 2px solid variables.$font-first-color;
+    }
+  }
+  ul {
+    li {
+      h3 {
+        color: variables.$font-first-color;
+        font-size: 4rem;
+        text-align: center;
+      }
+      a {
+        span {
+          color: variables.$font-first-color;
+        }
+      }
+      p {
+        color: variables.$font-first-color;
+      }
+    }
+  }
+  .button01 {
+    margin-top: 80px;
+    @include variables.mq(lg) {
+      margin-top: 8%;
+    }
+  }
+}
+
+.frontAuthor {
+  background-color: variables.$bg-forth-color;
+  padding: 100px 0;
+  @include variables.mq(lg) {
+    padding: 10% 0;
+  }
+  .inner {
+    max-width: 840px;
+  }
+  &Box {
+    margin-bottom: 80px;
+    @include variables.mq(lg) {
+      margin-bottom: 8%;
+    }
+    @include variables.mq(sm) {
+      margin-bottom: 12%;
+    }
+  }
+  &H2 {
+    color: variables.$font-first-color;
+    font-size: 5rem;
+    text-align: center;
+    margin: 0 auto 60px;
+    @include variables.mq(lg) {
+      margin-bottom: 6%;
+    }
+    @include variables.mq(sm) {
+      margin-bottom: 6%;
+      font-size: 3rem;
+    }
+  }
+  &H3 {
+    color: variables.$font-first-color;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 60px;
+    margin: 0 auto 60px;
+    @include variables.mq(lg) {
+      margin-bottom: 6%;
+    }
+  }
+  .button01 {
+    margin: 60px auto 0;
+    @include variables.mq(lg) {
+      margin-top: 8%;
+    }
+    @include variables.mq(sm) {
+      margin-top: 12%;
+    }
+  }
+}

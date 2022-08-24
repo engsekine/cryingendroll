@@ -1,0 +1,30 @@
+@charset "utf-8";
+@use '../variables';
+
+.archivePrevNext {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  margin: 80px auto;
+  font-family: 'DotGothic16', sans-serif;
+  li {
+    font-size: 3rem;
+    a {
+      font-size: 3rem;
+      letter-spacing: 0;
+      width: 1.5em;
+      height: 1.5em;
+      line-height: 1.1em;
+      text-align: center;
+      box-sizing: border-box;
+      border: 1px solid variables.$font-first-color;
+      color: variables.$font-first-color;
+      background-color: variables.$bg-first-color;
+      &:hover {
+        opacity: 1;
+        color: variables.$font-second-color;
+        background-color: variables.$font-first-color;
+      }
+    }
+  }
+}

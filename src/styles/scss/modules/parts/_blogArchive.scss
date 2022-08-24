@@ -1,0 +1,130 @@
+@charset "utf-8";
+@use '../variables';
+.blogArticle {
+  box-sizing: border-box;
+  padding: 80px 0;
+  border-bottom: 1px solid variables.$font-first-color;
+  @include variables.mq(lg) {
+    padding: 8% 0;
+  }
+  @include variables.mq(sm) {
+    padding: 10% 0 14%;
+  }
+  &Inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  &Title {
+    color: variables.$font-first-color;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 20px;
+    @include variables.mq(lg) {
+      margin-bottom: 4%;
+    }
+    @include variables.mq(sm) {
+      font-size: 3rem;
+    }
+  }
+  &Days {
+    color: variables.$font-first-color;
+    font-size: 2.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    @include variables.mq(sm) {
+      font-size: 1.6rem;
+    }
+    svg {
+      @include variables.mq(sm) {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  &Category {
+    color: variables.$font-first-color;
+    font-size: 1.6rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto 0;
+    @include variables.mq(lg) {
+      margin-top: 2%;
+    }
+    @include variables.mq(sm) {
+      font-size: 1.4rem;
+    }
+    svg {
+      @include variables.mq(sm) {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  &Description {
+    color: variables.$font-first-color;
+    box-sizing: border-box;
+    padding: 40px 0 20px;
+    @include variables.mq(lg) {
+      padding: 8% 0 2%;
+    }
+  }
+  &Author {
+    display: inline-flex;
+    align-items: center;
+    color: variables.$font-first-color;
+    margin-bottom: 20px;
+    @include variables.mq(lg) {
+      margin-bottom: 4%;
+    }
+    > svg {
+      padding-top: 1.5px;
+      @include variables.mq(sm) {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  &Next {
+    display: block;
+    max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background: variables.$font-second-color;
+    border: 4px solid variables.$font-first-color;
+    margin-top: 40px;
+    @include variables.mq(lg) {
+      margin-top: 4%;
+    }
+    @include variables.mq(sm) {
+      border: 2px solid variables.$font-first-color;
+      margin-top: 4%;
+    }
+    span {
+      color: variables.$font-first-color;
+      font-size: 2.5rem;
+      line-height: 45px;
+      @include variables.mq(lg) {
+        margin-bottom: 4%;
+      }
+      @include variables.mq(sm) {
+        font-size: 2rem;
+        line-height: 30px;
+        margin-bottom: 4%;
+      }
+    }
+    &:hover {
+      opacity: 1;
+      background: variables.$font-first-color;
+      span {
+        color: variables.$font-second-color;
+      }
+    }
+  }
+}

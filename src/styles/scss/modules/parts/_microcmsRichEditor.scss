@@ -1,0 +1,78 @@
+@charset "utf-8";
+@use '../variables';
+.microCMSRichEditor {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: variables.$font-first-color;
+    text-align: left;
+  }
+  h1 {
+    @include variables.h1;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    @include variables.h2;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  h3 {
+    @include variables.h3;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  h4 {
+    @include variables.h4;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  h5 {
+    @include variables.h5;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  h6 {
+    @include variables.h6;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  p {
+    @include variables.p;
+  }
+
+  a {
+    @include variables.p;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'DotGothic16', sans-serif;
+    letter-spacing: 0.1em;
+  }
+
+  p,
+  span,
+  li,
+  strong {
+    @include variables.p;
+    color: variables.$font-first-color;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+  iframe {
+    max-width: 100%;
+  }
+}

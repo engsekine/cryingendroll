@@ -1,0 +1,85 @@
+@charset "utf-8";
+@use '../variables';
+
+.header {
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+  height: variables.$header-height;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: variables.$bg-third-color;
+  @include variables.mq(lg) {
+    padding: 0 2%;
+  }
+  @include variables.mq(md) {
+    padding: 0 4%;
+  }
+  @include variables.mq(sm) {
+    padding: 0 4%;
+  }
+  .headerLogo {
+    margin-left: 0;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: variables.$font-second-color;
+  }
+  nav {
+    @include variables.mq(md) {
+      display: none;
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+      li {
+        a {
+          padding: 0.5em 1em;
+          box-sizing: border-box;
+          position: relative;
+          color: variables.$font-second-color;
+          display: inline-flex;
+          align-items: center;
+          @include variables.mq(lg) {
+            padding: 0.5em;
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 2px;
+            background: variables.$font-second-color;
+            width: 100%;
+            height: 1px;
+            margin: auto;
+            transform-origin: left top;
+            transform: scale(0, 1);
+            transition: ease 0.4s;
+            box-sizing: border-box;
+          }
+          &:hover::before {
+            transform-origin: left top;
+            transform: scale(1, 1);
+          }
+          svg {
+            stroke: variables.$font-second-color;
+            padding-right: 5px;
+            padding-top: 2px;
+          }
+        }
+      }
+    }
+  }
+}
+#humburgerMenu {
+  display: none;
+  @include variables.mq(md) {
+    display: block;
+  }
+}
