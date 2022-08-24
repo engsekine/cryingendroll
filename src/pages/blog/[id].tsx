@@ -33,7 +33,7 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
             </li>
             <li className={styles.breadcrumbsGt}>&gt;</li>
             <li className={styles.breadcrumbsLink}>
-              <Link href='/blog/'>
+              <Link href='/archive/1/'>
                 <a>{author.seoTitle}</a>
               </Link>
             </li>
