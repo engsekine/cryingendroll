@@ -72,7 +72,9 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
               <Image src={`https://img.youtube.com/vi/${blog.youtube}/maxresdefault.jpg`} width={1200} height={630} alt='youtubeサムネイル' />
             </a>
           ) : (
-            <Image src={`${blog.eyecatch.url}?fm=webp"` + ` type="image/webp`} width={1200} height={630} alt='youtubeサムネイル' />
+            <div className={styles.blogEyeCatch}>
+              <Image src={`${blog.eyecatch.url}?fm=webp"` + ` type="image/webp`} width={1200} height={630} alt='サムネイル' />
+            </div>
           )}
 
           <div className={styles.nextPrev}>

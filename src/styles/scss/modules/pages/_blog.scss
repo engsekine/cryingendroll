@@ -34,29 +34,64 @@
     .blogH1 {
       margin-bottom: 60px;
       text-align: center;
+      @include variables.mq(lg) {
+        margin-bottom: 6%;
+      }
+      @include variables.mq(sm) {
+        margin-bottom: 10%;
+      }
     }
-    .blogEyeCatch {
-      max-width: 600px;
-      margin-bottom: 60px;
-    }
+
     .microCMSRichEditor {
       margin-bottom: 40px;
+      @include variables.mq(lg) {
+        margin-bottom: 4%;
+      }
+      @include variables.mq(sm) {
+        margin-bottom: 8%;
+      }
     }
     .blogName {
       margin-bottom: 60px;
+      @include variables.mq(lg) {
+        margin-bottom: 6%;
+      }
+      @include variables.mq(sm) {
+        margin-bottom: 10%;
+      }
     }
     .blogYoutube {
       max-width: 500px;
-      margin-bottom: 60px;
+      margin: 0 auto 60px;
+      @include variables.mq(lg) {
+        margin-bottom: 6%;
+      }
+      @include variables.mq(sm) {
+        margin-bottom: 14%;
+      }
+    }
+    .blogEyeCatch {
+      max-width: 500px;
+      margin: 0 auto 60px;
+      @include variables.mq(lg) {
+        margin-bottom: 6%;
+      }
+      @include variables.mq(sm) {
+        margin-bottom: 14%;
+      }
     }
     .nextPrev {
       display: flex;
       justify-content: space-between;
       div {
+        max-width: 47%;
         a {
           color: variables.$font-first-color;
           > span {
             display: block;
+            @include variables.mq(sm) {
+              font-size: 1.2rem;
+            }
           }
         }
       }
