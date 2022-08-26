@@ -41,6 +41,7 @@ interface Blog {
       url?: string
     }
   }
+  jsonLd?: string
 }
 
 interface BlogQuery {
@@ -82,6 +83,7 @@ interface BlogQuery {
       url?: string
     }
   }
+  jsonLd?: string
 }
 
 interface Author {
@@ -102,6 +104,7 @@ interface Author {
       url?: string
     }
   }
+  jsonLd?: string
 }
 
 interface Pagination {

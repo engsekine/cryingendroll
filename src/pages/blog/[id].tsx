@@ -7,6 +7,7 @@ import styles from '@/styles/scss/index.module.scss'
 
 export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
   const Date = dayjs(blog.publishedAt).format('YYYY/MM/DD')
+
   return (
     <>
       <Head>
@@ -68,10 +69,10 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
 
           {blog.youtube !== undefined ? (
             <a className={styles.blogYoutube} href={`https://www.youtube.com/watch?v=${blog.youtube}`} target='_blank' rel='noreferrer'>
-              <Image src={`https://img.youtube.com/vi/${blog.youtube}/maxresdefault.jpg`} width='100%' height='auto' alt='youtubeサムネイル' />
+              <Image src={`https://img.youtube.com/vi/${blog.youtube}/maxresdefault.jpg`} width={1200} height={630} alt='youtubeサムネイル' />
             </a>
           ) : (
-            <Image src={`${blog.eyecatch.url}?fm=webp"` + ` type="image/webp`} width='100%' height='auto' alt='youtubeサムネイル' />
+            <Image src={`${blog.eyecatch.url}?fm=webp"` + ` type="image/webp`} width={1200} height={630} alt='youtubeサムネイル' />
           )}
 
           <div className={styles.nextPrev}>

@@ -7,21 +7,21 @@ export function SNS() {
       <li>
         <Link href={`${process.env.NEXT_PUBLIC_FACEBOOK}`}>
           <a target='_blank' rel='noopener'>
-            <Image src='/icon/facebook_w.svg' width='100%' height='auto' alt='facebook' />
+            <Image src='/icon/facebook_w.svg' width='100px' height='100px' alt='facebook' />
           </a>
         </Link>
       </li>
       <li>
         <Link href={`${process.env.NEXT_PUBLIC_INSTAGRAM}`}>
           <a target='_blank' rel='noopener'>
-            <Image src='/icon/instagram_w.svg' width='100%' height='auto' alt='instagram' />
+            <Image src='/icon/instagram_w.svg' width='100px' height='100px' alt='instagram' />
           </a>
         </Link>
       </li>
       <li>
         <Link href={`${process.env.NEXT_PUBLIC_TWITTER}`}>
           <a target='_blank' rel='noopener'>
-            <Image src='/icon/twitter_w.svg' width='100%' height='auto' alt='twitter' />
+            <Image src='/icon/twitter_w.svg' width='100px' height='100px' alt='twitter' />
           </a>
         </Link>
       </li>

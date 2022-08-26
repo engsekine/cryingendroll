@@ -37,6 +37,7 @@ export default function Home({blog, author}: BlogQuery) {
       <section id={styles.frontBlog} className={styles.frontBlog}>
         <div className={styles.inner}>
           <h2 className={styles.frontBlogH2}>最新記事</h2>
+
           {blog.map((blog) => (
             <article key={blog.id} className={styles.blogArticle}>
               <div className={styles.blogArticleInner}>
@@ -122,7 +123,8 @@ export const getStaticProps = async () => {
   const limit = 7
   const queries = {fields: 'id,title,description,content,publishedAt,category', limit: limit}
   const data = await client.get({endpoint: 'blog', queries: queries})
-  const author = await client.get({endpoint: 'author'})
+  const authorQueries = {fields: 'seoTitle,seoDescription,seoImage,seoUrl,seoFavicon,scrollText,comment,toph1,profile'}
+  const author = await client.get({endpoint: 'author', queries: authorQueries})
   return {
     props: {
       blog: data.contents,

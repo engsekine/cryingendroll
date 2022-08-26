@@ -1,4 +1,3 @@
-import dayjs from 'dayjs'
 import styles from '@/styles/scss/index.module.scss'
 import {Navgation, SNS} from '@/components/index'
 export function Footer() {
@@ -10,7 +9,7 @@ export function Footer() {
         </div>
         <SNS />
       </div>
-      <p className={styles.footerCopyright}>Copyright © {dayjs().format('YYYY')} DAICHI SEKINE All Rights Reserved.</p>
+      <p className={styles.footerCopyright}>Copyright © 2022 DAICHI SEKINE All Rights Reserved.</p>
     </footer>
   )
 }
