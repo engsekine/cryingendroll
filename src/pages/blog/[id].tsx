@@ -172,7 +172,7 @@ export const getStaticProps = async (context: {params: {id: string}}) => {
   })
   const prevEntry = prev.contents[0] || {}
   const nextEntry = next.contents[0] || {}
-  const getAuthor = {fields: 'name,seoUrl,seoTitle,seoFavicon,seoImage'}
+  const getAuthor = {fields: 'name,seoUrl,seoTitle,seoFavicon,seoImage,scrollText'}
   const author = await client.get({endpoint: 'author', queries: getAuthor})
   return {
     props: {
