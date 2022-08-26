@@ -122,7 +122,6 @@ export const getStaticProps = async () => {
   const limit = 7
   const queries = {fields: 'id,title,description,content,publishedAt,category', limit: limit}
   const data = await client.get({endpoint: 'blog', queries: queries})
-  const getAuthor = {fields: 'name,profile,comment,toph1,scrollText,music'}
   const author = await client.get({endpoint: 'author'})
   return {
     props: {

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import dayjs from 'dayjs'
 import {client} from '@/pages/api/client'
 import styles from '@/styles/scss/index.module.scss'
@@ -66,11 +67,11 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
           <p className={styles.blogName}>関根</p>
 
           {blog.youtube !== undefined ? (
-            <a className={styles.blogYoutube} href={`https://www.youtube.com/watch?v=${blog.youtube}`} target='_blank' rel='noopener'>
-              <img src={`https://img.youtube.com/vi/${blog.youtube}/maxresdefault.jpg`} />
+            <a className={styles.blogYoutube} href={`https://www.youtube.com/watch?v=${blog.youtube}`} target='_blank' rel='noreferrer'>
+              <Image src={`https://img.youtube.com/vi/${blog.youtube}/maxresdefault.jpg`} width='100%' height='auto' alt='youtubeサムネイル' />
             </a>
           ) : (
-            <img src={`${blog.eyecatch.url}?fm=webp"` + ` type="image/webp`} />
+            <Image src={`${blog.eyecatch.url}?fm=webp"` + ` type="image/webp`} width='100%' height='auto' alt='youtubeサムネイル' />
           )}
 
           <div className={styles.nextPrev}>
@@ -114,7 +115,6 @@ export const getStaticProps = async (context: {params: {id: string}}) => {
   const limit = 1
   const queries = {fields: 'id,title,description,content,publishedAt,eyecatch,youtube,category', limit: limit}
   const data = await client.get({endpoint: 'blog', contentId: id, queries: queries})
-
   const entry = await client.get<Entry>({endpoint: 'blog', contentId: id})
   const fields = 'id,title,publishedAt'
   const prev = await client.get<EntriesApi>({
