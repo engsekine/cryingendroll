@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from '@/styles/scss/index.module.scss'
 import {Mail} from '@/components/index'
 import {client} from '@/pages/api/client'
@@ -25,6 +26,15 @@ export default function Contact({author}: Author) {
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <section id={styles.contact} className={styles.contact}>
+        <ul className={styles.breadcrumbs}>
+          <li className={styles.breadcrumbsLink}>
+            <Link href='/'>
+              <a>{author.seoTitle}</a>
+            </Link>
+          </li>
+          <li className={styles.breadcrumbsGt}>&gt;</li>
+          <li className={styles.breadcrumbsLink}>お問合わせページ</li>
+        </ul>
         <div className={styles.inner}>
           <h1 className={styles.contactH1}>お問合わせページ</h1>
           <Mail />

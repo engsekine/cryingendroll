@@ -1,8 +1,10 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from '@/styles/scss/index.module.scss'
 import {client} from '@/pages/api/client'
-
 import dayjs from 'dayjs'
+import {BreadcrumbList} from 'schema-dts'
+import {JsonLd} from 'react-schemaorg'
 
 export default function About({author}: Author) {
   const AuthorTitle = '著者について'
@@ -25,6 +27,15 @@ export default function About({author}: Author) {
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <section id={styles.Author} className={styles.Author}>
+        <ul className={styles.breadcrumbs}>
+          <li className={styles.breadcrumbsLink}>
+            <Link href='/'>
+              <a>{author.seoTitle}</a>
+            </Link>
+          </li>
+          <li className={styles.breadcrumbsGt}>&gt;</li>
+          <li className={styles.breadcrumbsLink}>著者について</li>
+        </ul>
         <div className={styles.inner}>
           <div className={styles.AuthorBox}>
             <h2 className={styles.AuthorH2}>著者について</h2>
@@ -53,11 +64,30 @@ export default function About({author}: Author) {
           </div>
         </div>
       </section>
+      <JsonLd<BreadcrumbList>
+        item={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: `${author.seoTitle}`,
+              item: `${process.env.NEXT_PUBLIC_URL}`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: '著者について',
+            },
+          ],
+        }}
+      />
     </>
   )
 }
 export const getStaticProps = async () => {
-  const getAuthor = {fields: 'profile,comment,music,concert,seoUrl,seoTitle,seoFavicon,seoImage'}
+  const getAuthor = {fields: 'profile,comment,music,concert,seoUrl,seoTitle,seoFavicon,seoImage,scrollText'}
   const author = await client.get({endpoint: 'author', queries: getAuthor})
   return {
     props: {

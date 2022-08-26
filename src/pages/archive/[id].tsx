@@ -5,7 +5,8 @@ import {client} from '@/pages/api/client'
 import {PrevNext} from '@/components/index'
 import {BLOG_PER_PAGE} from '@/lib/siteSettings'
 import dayjs from 'dayjs'
-
+import {BreadcrumbList} from 'schema-dts'
+import {JsonLd} from 'react-schemaorg'
 export default function ArchiveId({blog, totalCount, author}: BlogQuery) {
   const PageArchiveTitle = 'アーカイブ'
   const MetaDescription = `関根の憂鬱アーカイブページ`
@@ -28,6 +29,15 @@ export default function ArchiveId({blog, totalCount, author}: BlogQuery) {
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <section className={styles.blogArchive}>
+        <ul className={styles.breadcrumbs}>
+          <li className={styles.breadcrumbsLink}>
+            <Link href='/'>
+              <a>{author.seoTitle}</a>
+            </Link>
+          </li>
+          <li className={styles.breadcrumbsGt}>&gt;</li>
+          <li className={styles.breadcrumbsLink}>アーカイブ</li>
+        </ul>
         <div className={styles.inner}>
           <h1 className={styles.blogArchiveH1}>アーカイブ</h1>
           {blog.map((blog) => (
@@ -69,7 +79,7 @@ export default function ArchiveId({blog, totalCount, author}: BlogQuery) {
                       <circle cx='12' cy='7' r='4'></circle>
                       <path d='M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2'></path>
                     </svg>
-                    関根
+                    {author.name}
                   </a>
                 </Link>
 
@@ -84,6 +94,25 @@ export default function ArchiveId({blog, totalCount, author}: BlogQuery) {
           <PrevNext totalCount={Math.ceil(totalCount / 10)} />
         </div>
       </section>
+      <JsonLd<BreadcrumbList>
+        item={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: `${author.seoTitle}`,
+              item: `${process.env.NEXT_PUBLIC_URL}`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'アーカイブ',
+            },
+          ],
+        }}
+      />
     </>
   )
 }
@@ -107,7 +136,7 @@ export const getStaticProps = async (context: {params: {id: string}}) => {
   const limit = 10
   const queries = {offset: offset, limit: limit}
   const dataQueries = await client.get({endpoint: 'blog', queries: queries})
-  const getAuthor = {fields: 'seoUrl,seoTitle,seoFavicon,seoImage'}
+  const getAuthor = {fields: 'name,seoUrl,seoTitle,seoFavicon,seoImage'}
   const author = await client.get({endpoint: 'author', queries: getAuthor})
   return {
     props: {

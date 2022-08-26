@@ -2,13 +2,36 @@
 @use '../variables';
 
 .breadcrumbs {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   overflow-x: scroll;
+  max-width: variables.$max-lg;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 0 auto 100px;
+  @include variables.mq(lg) {
+    padding: 0 2%;
+    margin-bottom: 10%;
+  }
+  @include variables.mq(md) {
+    padding: 0 4%;
+  }
+  @include variables.mq(sm) {
+    padding: 0 4%;
+  }
   &Gt {
     padding: 0 1em;
   }
   li {
     flex-shrink: 0;
+    margin: 0;
+    @include variables.mq(sm) {
+      font-size: 1.2rem;
+    }
+    a {
+      @include variables.mq(sm) {
+        font-size: 1.2rem;
+      }
+    }
   }
 }

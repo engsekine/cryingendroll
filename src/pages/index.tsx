@@ -4,9 +4,11 @@ import {client} from '@/pages/api/client'
 import dayjs from 'dayjs'
 import styles from '@/styles/scss/index.module.scss'
 import {useLoading} from '@/hooks/index'
-
+import {FAQPage} from 'schema-dts'
+import {JsonLd} from 'react-schemaorg'
 export default function Home({blog, author}: BlogQuery) {
   const [isShowLoading] = useLoading()
+
   return (
     <>
       <Head>
@@ -77,7 +79,7 @@ export default function Home({blog, author}: BlogQuery) {
                       <circle cx='12' cy='7' r='4'></circle>
                       <path d='M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2'></path>
                     </svg>
-                    関根
+                    {author.name}
                   </a>
                 </Link>
 
@@ -114,6 +116,20 @@ export default function Home({blog, author}: BlogQuery) {
           </div>
         </div>
       </section>
+      <JsonLd<FAQPage>
+        item={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: {
+            '@type': 'Question',
+            name: 'このサイトは？',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `${author.scrollText}`,
+            },
+          },
+        }}
+      />
     </>
   )
 }
@@ -123,7 +139,7 @@ export const getStaticProps = async () => {
   const limit = 7
   const queries = {fields: 'id,title,description,content,publishedAt,category', limit: limit}
   const data = await client.get({endpoint: 'blog', queries: queries})
-  const authorQueries = {fields: 'seoTitle,seoDescription,seoImage,seoUrl,seoFavicon,scrollText,comment,toph1,profile'}
+  const authorQueries = {fields: 'name,seoTitle,seoDescription,seoImage,seoUrl,seoFavicon,scrollText,comment,toph1,profile'}
   const author = await client.get({endpoint: 'author', queries: authorQueries})
   return {
     props: {

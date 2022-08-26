@@ -1,12 +1,12 @@
 @charset "utf-8";
 @use '../variables';
 .blog {
-  padding: 20px 0;
+  padding: 20px 0 100px;
+  @include variables.mq(lg) {
+    padding: 2% 0 10%;
+  }
   .inner {
     max-width: 840px;
-    .breadcrumbs {
-      margin-bottom: 60px;
-    }
     .blogDate {
       text-align: center;
     }

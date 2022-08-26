@@ -26,6 +26,7 @@ interface Blog {
     title?: string
   }
   author: {
+    name?: string
     toph1: ReactNode
     scrollText: ReactNode
     profile: string
@@ -41,7 +42,6 @@ interface Blog {
       url?: string
     }
   }
-  jsonLd?: string
 }
 
 interface BlogQuery {
@@ -68,6 +68,7 @@ interface BlogQuery {
   totalCount: number
   title?: string
   author: {
+    name?: string
     toph1: ReactNode
     scrollText: ReactNode
     profile: string
@@ -83,7 +84,6 @@ interface BlogQuery {
       url?: string
     }
   }
-  jsonLd?: string
 }
 
 interface Author {
@@ -91,8 +91,10 @@ interface Author {
     concert: {
       map(arg0: (concert: {venue?: string; liveName?: string; date?: string; id: Key | null | undefined}) => JSX.Element): import('react').ReactNode
     }
+    name?: string
     profile: string
     comment: string
+    scrollText: string
     seoTitle?: string
     seoUrl?: string
     seoDescription?: string
@@ -104,7 +106,6 @@ interface Author {
       url?: string
     }
   }
-  jsonLd?: string
 }
 
 interface Pagination {

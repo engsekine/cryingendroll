@@ -4,6 +4,8 @@ import Image from 'next/image'
 import dayjs from 'dayjs'
 import {client} from '@/pages/api/client'
 import styles from '@/styles/scss/index.module.scss'
+import {WebPage, BreadcrumbList} from 'schema-dts'
+import {JsonLd} from 'react-schemaorg'
 
 export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
   const Date = dayjs(blog.publishedAt).format('YYYY/MM/DD')
@@ -26,23 +28,22 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <article id={styles.blog} className={styles.blog}>
+        <ul className={styles.breadcrumbs}>
+          <li className={styles.breadcrumbsLink}>
+            <Link href='/'>
+              <a>{author.seoTitle}</a>
+            </Link>
+          </li>
+          <li className={styles.breadcrumbsGt}>&gt;</li>
+          <li className={styles.breadcrumbsLink}>
+            <Link href='/archive/1/'>
+              <a>アーカイブ</a>
+            </Link>
+          </li>
+          <li className={styles.breadcrumbsGt}>&gt;</li>
+          <li className={styles.breadcrumbsLink}>{blog.title}</li>
+        </ul>
         <div className={styles.inner}>
-          <ul className={styles.breadcrumbs}>
-            <li className={styles.breadcrumbsLink}>
-              <Link href='/'>
-                <a>Top</a>
-              </Link>
-            </li>
-            <li className={styles.breadcrumbsGt}>&gt;</li>
-            <li className={styles.breadcrumbsLink}>
-              <Link href='/archive/1/'>
-                <a>{author.seoTitle}</a>
-              </Link>
-            </li>
-            <li className={styles.breadcrumbsGt}>&gt;</li>
-            <li className={styles.breadcrumbsLink}>{blog.title}</li>
-          </ul>
-
           <p className={styles.blogDate}>{Date}</p>
           <Link href={`/category/${blog.category.id}`}>
             <a className={styles.blogCategory}>
@@ -65,7 +66,7 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
               __html: `${blog.content}`,
             }}
           />
-          <p className={styles.blogName}>関根</p>
+          <p className={styles.blogName}>{author.name}</p>
 
           {blog.youtube !== undefined && (
             <a className={styles.blogYoutube} href={`https://www.youtube.com/watch?v=${blog.youtube}`} target='_blank' rel='noreferrer'>
@@ -95,6 +96,41 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
           </div>
         </div>
       </article>
+      <JsonLd<WebPage>
+        item={{
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          author: `${author.name}`,
+          name: `${author.seoTitle}`,
+          abstract: `${author.scrollText}`,
+        }}
+      />
+      <JsonLd<BreadcrumbList>
+        item={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: `${author.seoTitle}`,
+              item: `${process.env.NEXT_PUBLIC_URL}`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: `${author.seoTitle}`,
+              item: `${process.env.NEXT_PUBLIC_URL}/archive/1`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: `${author.seoTitle}`,
+              item: `${process.env.NEXT_PUBLIC_URL}/blog/${blog.id}`,
+            },
+          ],
+        }}
+      />
     </>
   )
 }
@@ -136,7 +172,7 @@ export const getStaticProps = async (context: {params: {id: string}}) => {
   })
   const prevEntry = prev.contents[0] || {}
   const nextEntry = next.contents[0] || {}
-  const getAuthor = {fields: 'seoUrl,seoTitle,seoFavicon,seoImage'}
+  const getAuthor = {fields: 'name,seoUrl,seoTitle,seoFavicon,seoImage'}
   const author = await client.get({endpoint: 'author', queries: getAuthor})
   return {
     props: {

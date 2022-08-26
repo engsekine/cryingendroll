@@ -2,9 +2,9 @@
 @use '../variables';
 .Author {
   background-color: variables.$bg-first-color;
-  padding: 100px 0;
+  padding: 20px 0 100px;
   @include variables.mq(lg) {
-    padding: 10% 0;
+    padding: 2% 0 10%;
   }
   .inner {
     max-width: 840px;
