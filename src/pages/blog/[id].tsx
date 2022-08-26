@@ -67,14 +67,10 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
           />
           <p className={styles.blogName}>関根</p>
 
-          {blog.youtube !== undefined ? (
+          {blog.youtube !== undefined && (
             <a className={styles.blogYoutube} href={`https://www.youtube.com/watch?v=${blog.youtube}`} target='_blank' rel='noreferrer'>
               <Image src={`https://img.youtube.com/vi/${blog.youtube}/maxresdefault.jpg`} width={1200} height={630} alt='youtubeサムネイル' />
             </a>
-          ) : (
-            <div className={styles.blogEyeCatch}>
-              <Image src={`${blog.eyecatch.url}?fm=webp"` + ` type="image/webp`} width={1200} height={630} alt='サムネイル' />
-            </div>
           )}
 
           <div className={styles.nextPrev}>
