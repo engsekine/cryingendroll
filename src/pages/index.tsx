@@ -3,8 +3,8 @@ import Link from 'next/link'
 import {client} from '@/pages/api/client'
 import dayjs from 'dayjs'
 import styles from '@/styles/scss/index.module.scss'
-
 import {useLoading} from '@/hooks/index'
+
 export default function Home({blog, author}: BlogQuery) {
   const [isShowLoading] = useLoading()
   return (
