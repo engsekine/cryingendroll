@@ -138,7 +138,7 @@ export default function Home({blog, author}: BlogQuery) {
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-  const limit = 7
+  const limit = 5
   const queries = {fields: 'id,title,description,content,publishedAt,category', limit: limit}
   const data = await client.get({endpoint: 'blog', queries: queries})
   const authorQueries = {fields: 'name,seoTitle,seoDescription,seoImage,seoUrl,seoFavicon,scrollText,comment,toph1,profile'}

@@ -31,7 +31,7 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
         <ul className={styles.breadcrumbs}>
           <li className={styles.breadcrumbsLink}>
             <Link href='/'>
-              <a>{author.seoTitle}</a>
+              <a>Top</a>
             </Link>
           </li>
           <li className={styles.breadcrumbsGt}>&gt;</li>

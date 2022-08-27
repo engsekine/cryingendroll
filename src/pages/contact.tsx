@@ -29,7 +29,7 @@ export default function Contact({author}: Author) {
         <ul className={styles.breadcrumbs}>
           <li className={styles.breadcrumbsLink}>
             <Link href='/'>
-              <a>{author.seoTitle}</a>
+              <a>Top</a>
             </Link>
           </li>
           <li className={styles.breadcrumbsGt}>&gt;</li>
