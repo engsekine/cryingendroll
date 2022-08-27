@@ -11,23 +11,29 @@
       text-align: center;
     }
     .blogCategory {
-      color: variables.$font-first-color;
-      font-size: 1.6rem;
-      text-align: center;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 10px auto 0;
+      margin: 0 auto 20px;
       @include variables.mq(lg) {
-        margin-top: 2%;
+        margin-bottom: 2%;
       }
       @include variables.mq(sm) {
-        font-size: 1.4rem;
+        margin-bottom: 4%;
       }
-      svg {
+      a {
+        color: variables.$font-first-color;
+        font-size: 1.6rem;
+        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         @include variables.mq(sm) {
-          width: 20px;
-          height: 20px;
+          font-size: 1.4rem;
+        }
+        svg {
+          @include variables.mq(sm) {
+            width: 20px;
+            height: 20px;
+          }
         }
       }
     }

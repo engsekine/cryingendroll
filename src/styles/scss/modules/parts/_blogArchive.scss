@@ -45,23 +45,26 @@
     }
   }
   &Category {
-    color: variables.$font-first-color;
-    font-size: 1.6rem;
-    text-align: center;
     display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 10px auto 0;
     @include variables.mq(lg) {
       margin-top: 2%;
     }
-    @include variables.mq(sm) {
-      font-size: 1.4rem;
-    }
-    svg {
+    a {
+      color: variables.$font-first-color;
+      font-size: 1.6rem;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       @include variables.mq(sm) {
-        width: 20px;
-        height: 20px;
+        font-size: 1.4rem;
+      }
+      svg {
+        @include variables.mq(sm) {
+          width: 20px;
+          height: 20px;
+        }
       }
     }
   }
