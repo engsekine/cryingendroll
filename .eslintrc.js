@@ -5,6 +5,7 @@ module.exports = {
   },
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/eslint-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'next/core-web-vitals', 'google', 'prettier'],
   parser: '@typescript-eslint/parser',
+  ignorePatterns: ["*.config.js"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
