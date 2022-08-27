@@ -64,6 +64,10 @@ strong {
   @include variables.p;
   color: variables.$font-first-color;
   font-weight: bold;
+  @include variables.mq(sm) {
+    letter-spacing: 0;
+    line-height: 1.625em;
+  }
 }
 img {
   display: block;
