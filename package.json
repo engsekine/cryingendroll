@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev:next": "next dev -p 3000",
-    "build": "next build && next export && next-sitemap --config sitemap.config.js"
+    "build": "next build && next-sitemap --config sitemap.config.js"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
