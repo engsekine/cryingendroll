@@ -18,12 +18,12 @@ export default function About({author}: Author) {
         <meta property='og:description' content={AuthorDescription} />
         <meta property='og:image' content={author.seoImage.url} />
         <meta property='og:type' content='blog' />
-        <meta property='og:url' content={author.seoUrl} />
+        <meta property='og:url' content={process.env.NEXT_PUBLIC_URL} />
         <meta property='og:site_name' content={author.seoTitle} />
         <meta name='twitter:title' content={`${AuthorTitle} | ${author.seoTitle}`} />
         <meta name='twitter:description' content={AuthorDescription} />
         <meta name='twitter:image' content={author.seoImage.url} />
-        <link rel='canonical' href={author.seoUrl} />
+        <link rel='canonical' href={process.env.NEXT_PUBLIC_URL} />
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <section id={styles.Author} className={styles.Author}>
@@ -87,7 +87,7 @@ export default function About({author}: Author) {
   )
 }
 export const getStaticProps = async () => {
-  const getAuthor = {fields: 'profile,comment,music,concert,seoUrl,seoTitle,seoFavicon,seoImage,scrollText'}
+  const getAuthor = {fields: 'profile,comment,music,concert,seoTitle,seoFavicon,seoImage,scrollText'}
   const author = await client.get({endpoint: 'author', queries: getAuthor})
   return {
     props: {

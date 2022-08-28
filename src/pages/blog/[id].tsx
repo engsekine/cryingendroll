@@ -19,12 +19,12 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
         <meta property='og:description' content={blog.description} />
         <meta property='og:type' content='article' />
         <meta property='og:image' content={blog.eyecatch.url} />
-        <meta property='og:url' content={author.seoUrl} />
+        <meta property='og:url' content={process.env.NEXT_PUBLIC_URL} />
         <meta property='og:site_name' content={author.seoTitle} />
         <meta name='twitter:title' content={`${blog.title} | ${author.seoTitle}`} />
         <meta name='twitter:description' content={blog.description} />
         <meta name='twitter:image' content={blog.eyecatch.url} />
-        <link rel='canonical' href={author.seoUrl} />
+        <link rel='canonical' href={process.env.NEXT_PUBLIC_URL} />
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <article id={styles.blog} className={styles.blog}>
@@ -174,7 +174,7 @@ export const getStaticProps = async (context: {params: {id: string}}) => {
   })
   const prevEntry = prev.contents[0] || {}
   const nextEntry = next.contents[0] || {}
-  const getAuthor = {fields: 'name,seoUrl,seoTitle,seoFavicon,seoImage,scrollText'}
+  const getAuthor = {fields: 'name,seoTitle,seoFavicon,seoImage,scrollText'}
   const author = await client.get({endpoint: 'author', queries: getAuthor})
   return {
     props: {

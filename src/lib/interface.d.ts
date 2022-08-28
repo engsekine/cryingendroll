@@ -32,7 +32,6 @@ interface Blog {
     profile: string
     comment: string
     seoTitle?: string
-    seoUrl?: string
     seoDescription?: string
     seoTitle: string
     seoImage: {
@@ -74,7 +73,6 @@ interface BlogQuery {
     profile: string
     comment: string
     seoTitle?: string
-    seoUrl?: string
     seoDescription?: string
     seoTitle: string
     seoImage: {
@@ -96,7 +94,6 @@ interface Author {
     comment: string
     scrollText: string
     seoTitle?: string
-    seoUrl?: string
     seoDescription?: string
     seoTitle: string
     seoImage: {

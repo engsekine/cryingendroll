@@ -18,12 +18,12 @@ export default function Home({blog, author}: BlogQuery) {
         <meta property='og:title' content={author.seoTitle} />
         <meta property='og:description' content={author.seoDescription} />
         <meta property='og:image' content={author.seoImage.url} />
-        <meta property='og:url' content={author.seoUrl} />
+        <meta property='og:url' content={process.env.NEXT_PUBLIC_URL} />
         <meta property='og:site_name' content={author.seoTitle} />
         <meta name='twitter:title' content={author.seoTitle} />
         <meta name='twitter:description' content={author.seoDescription} />
         <meta name='twitter:image' content={author.seoImage.url} />
-        <link rel='canonical' href={author.seoUrl} />
+        <link rel='canonical' href={process.env.NEXT_PUBLIC_URL} />
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
 
@@ -141,7 +141,7 @@ export const getStaticProps = async () => {
   const limit = 5
   const queries = {fields: 'id,title,description,content,publishedAt,category', limit: limit}
   const data = await client.get({endpoint: 'blog', queries: queries})
-  const authorQueries = {fields: 'name,seoTitle,seoDescription,seoImage,seoUrl,seoFavicon,scrollText,comment,toph1,profile'}
+  const authorQueries = {fields: 'name,seoTitle,seoDescription,seoImage,seoFavicon,scrollText,comment,toph1,profile'}
   const author = await client.get({endpoint: 'author', queries: authorQueries})
   return {
     props: {

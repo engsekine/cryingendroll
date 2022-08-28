@@ -16,13 +16,13 @@ export default function Contact({author}: Author) {
         <meta property='og:description' content={ContactDescription} />
         <meta property='og:type' content='blog' />
         <meta property='og:image' content={author.seoImage.url} />
-        <meta property='og:url' content={author.seoUrl} />
+        <meta property='og:url' content={process.env.NEXT_PUBLIC_URL} />
         <meta property='og:site_name' content={author.seoTitle} />
         <meta name='twitter:title' content={`${ContactTitle} | ${author.seoTitle}`} />
         <meta name='twitter:description' content={ContactDescription} />
         <meta name='twitter:image' content={author.seoImage.url} />
         <meta name='robots' content='noindex, nofollow' />
-        <link rel='canonical' href={author.seoUrl} />
+        <link rel='canonical' href={process.env.NEXT_PUBLIC_URL} />
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <section id={styles.contact} className={styles.contact}>
@@ -45,7 +45,7 @@ export default function Contact({author}: Author) {
 }
 
 export const getStaticProps = async () => {
-  const getAuthor = {fields: 'seoUrl,seoTitle,seoFavicon,seoImage'}
+  const getAuthor = {fields: 'seoTitle,seoFavicon,seoImage'}
   const author = await client.get({endpoint: 'author', queries: getAuthor})
   return {
     props: {

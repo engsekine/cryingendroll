@@ -19,13 +19,13 @@ export default function ArchiveId({blog, totalCount, author}: BlogQuery) {
         <meta property='og:description' content={MetaDescription} />
         <meta property='og:image' content={author.seoImage.url} />
         <meta property='og:type' content='blog' />
-        <meta property='og:url' content={author.seoUrl} />
+        <meta property='og:url' content={process.env.NEXT_PUBLIC_URL} />
         <meta property='og:site_name' content={author.seoTitle} />
         <meta name='twitter:title' content={`${PageArchiveTitle} | ${author.seoTitle}`} />
         <meta name='twitter:description' content={MetaDescription} />
         <meta name='twitter:image' content={author.seoImage.url} />
         <meta name='robots' content='noindex, nofollow' />
-        <link rel='canonical' href={author.seoUrl} />
+        <link rel='canonical' href={process.env.NEXT_PUBLIC_URL} />
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <section className={styles.blogArchive}>
@@ -137,7 +137,7 @@ export const getStaticProps = async (context: {params: {id: string}}) => {
   const limit = 10
   const queries = {offset: offset, limit: limit}
   const dataQueries = await client.get({endpoint: 'blog', queries: queries})
-  const getAuthor = {fields: 'name,seoUrl,seoTitle,seoFavicon,seoImage'}
+  const getAuthor = {fields: 'name,seoTitle,seoFavicon,seoImage'}
   const author = await client.get({endpoint: 'author', queries: getAuthor})
   return {
     props: {
