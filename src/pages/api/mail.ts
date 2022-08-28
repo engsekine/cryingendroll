@@ -1,7 +1,8 @@
 import {createTransport} from 'nodemailer'
 import type {NextApiRequest, NextApiResponse} from 'next'
 
-const MailSend = async (req: NextApiRequest, res: NextApiResponse) => {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const transporter = createTransport({
     port: 465,
     host: 'smtp.gmail.com',
@@ -34,4 +35,3 @@ const MailSend = async (req: NextApiRequest, res: NextApiResponse) => {
     success: true,
   })
 }
-export default MailSend
