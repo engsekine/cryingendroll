@@ -39,5 +39,9 @@
   "main": "index.js",
   "repository": "https://github.com/engsekine/yakou.git",
   "author": "engsekine <engsekine@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "volta": {
+    "node": "16.17.0",
+    "yarn": "1.22.19"
+  }
 }
