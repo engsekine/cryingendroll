@@ -24,7 +24,7 @@ export default function ArchiveId({blog, prevEntry, nextEntry, author}: Blog) {
         <meta name='twitter:title' content={`${blog.title} | ${author.seoTitle}`} />
         <meta name='twitter:description' content={blog.description} />
         <meta name='twitter:image' content={blog.eyecatch.url} />
-        <link rel='canonical' href={`${process.env.NEXT_PUBLIC_URL}blog/${blog.id}`} />
+        <link rel='canonical' href={`${process.env.NEXT_PUBLIC_URL}/blog/${blog.id}`} />
         <link rel='icon' href={author.seoFavicon.url} />
         <meta property='article:published_time' content={blog.publishedAt} />
         <meta property='article:modified_time' content={blog.publishedAt} />
