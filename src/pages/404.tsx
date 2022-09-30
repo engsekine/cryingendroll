@@ -19,7 +19,6 @@ export default function Custom404({author}: Author) {
         <meta name='twitter:description' content={MetaDescription} />
         <meta name='twitter:image' content={author.seoImage.url} />
         <meta name='robots' content='noindex, nofollow' />
-        <link rel='canonical' href={process.env.NEXT_PUBLIC_URL} />
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
 

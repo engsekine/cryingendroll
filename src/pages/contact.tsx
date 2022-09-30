@@ -22,7 +22,7 @@ export default function Contact({author}: Author) {
         <meta name='twitter:description' content={ContactDescription} />
         <meta name='twitter:image' content={author.seoImage.url} />
         <meta name='robots' content='noindex, nofollow' />
-        <link rel='canonical' href={process.env.NEXT_PUBLIC_URL} />
+        <link rel='canonical' href={`${process.env.NEXT_PUBLIC_URL}/contact`} />
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <section id={styles.contact} className={styles.contact}>
