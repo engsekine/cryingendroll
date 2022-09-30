@@ -23,7 +23,7 @@ export default function About({author}: Author) {
         <meta name='twitter:title' content={`${AuthorTitle} | ${author.seoTitle}`} />
         <meta name='twitter:description' content={AuthorDescription} />
         <meta name='twitter:image' content={author.seoImage.url} />
-        <link rel='canonical' href={`${process.env.NEXT_PUBLIC_URL}author`} />
+        <link rel='canonical' href={`${process.env.NEXT_PUBLIC_URL}/author`} />
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <section id={styles.Author} className={styles.Author}>
