@@ -24,5 +24,6 @@ module.exports = {
     'spaced-comment': ['off'],
     'max-len': ['off'],
   },
+  ignorePatterns: ["*.config.js"],
   root: true,
 }
