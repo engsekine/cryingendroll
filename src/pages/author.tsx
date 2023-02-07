@@ -43,7 +43,7 @@ export default function About({author}: Author) {
           </div>
           <div className={styles.AuthorMusic}>
             <h2 className={styles.AuthorH2}>プレイリスト</h2>
-            <iframe allow='autoplay *; encrypted-media *; fullscreen *; clipboard-write' src='https://embed.music.apple.com/jp/playlist/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81/pl.u-NpXmzkmt4Dgb9Yd'></iframe>
+            <iframe allow='autoplay *; encrypted-media *; fullscreen *; clipboard-write' src='https://embed.music.apple.com/jp/playlist/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81/pl.u-NpXmzkmt4Dgb9Yd?l=en'></iframe>
           </div>
           <div className={styles.AuthorLive}>
             <h2 className={styles.AuthorH2}>ライブ参加</h2>
