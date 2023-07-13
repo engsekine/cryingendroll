@@ -24,7 +24,7 @@ export default function ArchiveId({blog, author}: BlogQuery) {
         <meta name='twitter:description' content={MetaDescription} />
         <meta name='twitter:image' content={author.seoImage.url} />
         <meta name='robots' content='noindex, nofollow' />
-        <link rel='canonical' href={process.env.NEXT_PUBLIC_URL} />
+        <link rel='canonical' href={`${process.env.NEXT_PUBLIC_URL}/category`} />
         <link rel='icon' href={author.seoFavicon.url} />
       </Head>
       <section className={styles.blogArchive}>
@@ -42,7 +42,7 @@ export default function ArchiveId({blog, author}: BlogQuery) {
           {blog.map((blog) => (
             <article key={blog.id} className={styles.blogArticle}>
               <div className={styles.blogArticleInner}>
-                <h3 className={styles.blogArticleTitle}>{blog.title}</h3>
+                <h2 className={styles.blogArticleTitle}>{blog.title}</h2>
                 <p className={styles.blogArticleDays}>
                   <svg xmlns='http://www.w3.org/2000/svg' className='icon icon-tabler icon-tabler-calendar-time' width='24' height='24' viewBox='0 0 24 24' strokeWidth='2' stroke='currentColor' fill='none' strokeLinecap='round' strokeLinejoin='round'>
                     <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>

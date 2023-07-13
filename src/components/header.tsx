@@ -15,7 +15,7 @@ export function Header() {
         <Navgation />
       </header>
       <div id={styles.humburgerMenu} data-toggle={humburgerMenuOpneClose}>
-        <button className={styles.lines} onClick={humburgerMenu}>
+        <button className={styles.lines} onClick={humburgerMenu} aria-label='閉じる'>
           <span></span>
           <span></span>
           <span></span>
